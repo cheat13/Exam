@@ -11,13 +11,18 @@ namespace myApi.Controllers
     [ApiController]
     public class LoanController : ControllerBase
     {
-        public static double Rate = 0;
+        public static Rate Rate = new Rate() { rate = 0 };
 
-        [HttpGet("{rate}")]
-        public ActionResult<double> SetRate(double rate)
+        [HttpPost]
+        public void SetRate(Rate rate)
         {
-            Rate = rate;
-            return Rate;
+            Rate.rate = rate.rate;
+        }
+
+        [HttpGet]
+        public ActionResult<double> GetRate()
+        {
+            return Rate.rate;
         }
 
         [HttpGet("{balance}/{years}")]
@@ -31,7 +36,7 @@ namespace myApi.Controllers
                 var descript = new Descript();
                 descript.Year = i;
                 descript.Balance = balance;
-                descript.Interest = calc.InterestCalculate(Rate, balance);
+                descript.Interest = calc.InterestCalculate(Rate.rate, balance);
                 descript.Payments = descript.Balance + descript.Interest;
                 balance += descript.Interest;
 
