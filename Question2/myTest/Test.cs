@@ -7,6 +7,7 @@ namespace myTest
     public class Test
     {
         [Theory]
+        [InlineData(100, 1, 0)]
         [InlineData(100, 3, 0)]
         [InlineData(100, 4, 100)]
         [InlineData(100, 9, 200)]

@@ -1,37 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Product } from '../../app/models';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  public products: Product[] = [];
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
-    });
+  ionViewDidLoad() {
+    this.GetAllProduct();
+  }
+
+  GetAllProduct() {
+    this.http.get<Product[]>("https://localhost:5001/api/Shop/GetAllProduct")
+      .subscribe(data => {
+        this.products = data;
+      });
+  }
+
+  GoCartPage() {
+    this.http.post("https://localhost:5001/api/Shop/AddProductInCart", this.products)
+      .subscribe(data => {
+        this.GetAllProduct();
+        this.navCtrl.push("CartPage");
+      });
+  }
+
+  isCheck(): boolean {
+    return this.products.every(it => it.amount == 0);
   }
 }
