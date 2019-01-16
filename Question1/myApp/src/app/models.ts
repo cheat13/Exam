@@ -4,3 +4,7 @@ export class Descript {
     interest : number
     payments : number
 }
+
+export class Rate {
+    rate: number
+}
