@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>กำหนดอัตราดอกเบี้ย</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>อัตราดอกเบี้ย (%)</ion-label>
+    <ion-input type="number" placeholder="{{rate}}" [(ngModel)]="rate"></ion-input>
+  </ion-item>
+
+  <div padding>
+    <button ion-button block round (click)="SetRate()">ยืนยัน</button>
+  </div>
+
+
+
+
+</ion-content>

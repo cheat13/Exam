@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      คำนวณยอดรายปี
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <div padding>
+    <ion-item>
+      <ion-label fixed>ยอดเงินต้น</ion-label>
+      <ion-input type="number" placeholder="{{balance}}" [(ngModel)]="balance"></ion-input>
+    </ion-item>
+
+    <ion-item>
+
+      <ion-label fixed>จำนวนปี</ion-label>
+      <ion-input type="number" placeholder="{{years}}" [(ngModel)]="years"></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button block round color="secondary" (click)="Calculate()">คำนวณ</button>
+    </div>
+  </div>
+
+  <ion-card color="danger">
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-2>
+          ปีที่
+        </ion-col>
+        <ion-col col-3>
+          คงค้าง
+        </ion-col>
+        <ion-col col-3>
+          ดอกเบี้ย
+        </ion-col>
+        <ion-col col-4>
+          ยอดที่ต้องชำระ
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item *ngFor="let des of descripts">
+    <ion-row text-center align-item-center>
+      <ion-col col-2>
+        <h2>{{des.year}}</h2>
+      </ion-col>
+      <ion-col col-3>
+        <h2>{{des.balance | number:"1.2-2"}}</h2>
+      </ion-col>
+      <ion-col col-3>
+        <h2>{{des.interest | number:"1.2-2"}}</h2>
+      </ion-col>
+      <ion-col col-4>
+        <h2>{{des.payments | number:"1.2-2"}}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+
+</ion-content>
