@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
-import { Rate } from '../../app/models';
+import { Loan } from '../../app/models';
 
 @Component({
   selector: 'page-home',
@@ -9,16 +9,15 @@ import { Rate } from '../../app/models';
 })
 export class HomePage {
 
-  public rate: Rate = new Rate();
+  public loan: Loan = new Loan();
 
   constructor(public navCtrl: NavController, private http: HttpClient, public toastCtrl: ToastController) {
-    this.rate.rate = 0;
+    
   }
 
   SetRate() {
-    this.http.post("https://localhost:5001/api/Loan/SetRate", this.rate)
+    this.http.post("https://localhost:5001/api/Loan/SetRate", this.loan)
       .subscribe(data => {
-        console.log(data);
         this.presentToast();
       });
   }
@@ -31,5 +30,4 @@ export class HomePage {
     });
     toast.present();
   }
-
 }
