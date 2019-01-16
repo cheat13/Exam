@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ร้านค้า</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card color="dark">
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-4>
+          <h2>ชื่อสินค้า</h2>
+        </ion-col>
+        <ion-col col-4>
+          <h2>ราคา</h2>
+        </ion-col>
+        <ion-col col-4>
+          <h2>จำนวน</h2>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item *ngFor="let pro of products">
+    <ion-row text-center>
+      <ion-col col-4 align-self-center>
+        <h2>{{pro.name}}</h2>
+      </ion-col>
+      <ion-col col-4 align-self-center>
+        <h2>{{pro.price | number:"1.0-2"}}</h2>
+      </ion-col>
+      <ion-col col-4 align-self-center>
+        <ion-item>
+          <ion-input type="number" placeholder="{{pro.amount}}" [(ngModel)]="pro.amount"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <div padding>
+    <button ion-button block round color="danger" (click)="GoCartPage()" [disabled]="isCheck()">เพิ่มไปยังตะกร้า</button>
+  </div>
+
+</ion-content>

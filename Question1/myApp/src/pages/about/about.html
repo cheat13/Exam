@@ -26,7 +26,7 @@
   </div>
 
   <div padding-left>
-    *อัตราดอกเบี้ย {{loan.rate}}%
+    * อัตราดอกเบี้ย {{loan.rate}}%
   </div>
 
   <ion-card color="danger">
@@ -49,18 +49,18 @@
   </ion-card>
 
   <ion-item *ngFor="let des of loan.descripts">
-    <ion-row text-center align-item-center>
+    <ion-row text-center>
       <ion-col col-2>
         <h2>{{des.year}}</h2>
       </ion-col>
       <ion-col col-3>
-        <h2>{{des.balance | number:"1.2-2"}}</h2>
+        <h2>{{des.balance | number:"1.0-2"}}</h2>
       </ion-col>
       <ion-col col-3>
-        <h2>{{des.interest | number:"1.2-2"}}</h2>
+        <h2>{{des.interest | number:"1.0-2"}}</h2>
       </ion-col>
       <ion-col col-4>
-        <h2>{{des.payments | number:"1.2-2"}}</h2>
+        <h2>{{des.payments | number:"1.0-2"}}</h2>
       </ion-col>
     </ion-row>
   </ion-item>

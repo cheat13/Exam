@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>ตะกร้าสินค้า</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card color="dark">
+    <ion-card-content>
+      <ion-row text-center>
+        <ion-col col-3>
+          <h2>ชื่อสินค้า</h2>
+        </ion-col>
+        <ion-col col-3>
+          <h2>จำนวน</h2>
+        </ion-col>
+        <ion-col col-3>
+          <h2>ราคา</h2>
+        </ion-col>
+        <ion-col col-3>
+          <h2>จำนวน</h2>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item *ngFor="let pro of cart.products">
+    <ion-row text-center>
+      <ion-col col-3>
+        <h2>{{pro.name}}</h2>
+      </ion-col>
+      <ion-col col-3 [class.discount]="pro.amount > 3">
+        <h2>{{pro.amount}}</h2>
+      </ion-col>
+      <ion-col col-3>
+        <h2>{{pro.price | number:"1.0-2"}}</h2>
+      </ion-col>
+      <ion-col col-3>
+        <h2>{{pro.totalPrice | number:"1.0-2"}}</h2>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-5>
+          <h2>ยอดรวม</h2>
+        </ion-col>
+        <ion-col col-7 text-right>
+          <h2>{{cart.totalPrice | number:"1.0-2"}} บาท</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row class="discount">
+        <ion-col col-5>
+          <h2>ส่วนลด (3 แถม 1)</h2>
+        </ion-col>
+        <ion-col col-7 text-right>
+          <h2>{{cart.discount | number:"1.0-2"}} บาท</h2>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-5>
+          <h2><b>ยอดที่ต้องจ่าย</b></h2>
+        </ion-col>
+        <ion-col col-7 text-right>
+          <h2><b>{{cart.totalPrice | number:"1.0-2"}} บาท</b></h2>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <div padding>
+    <button ion-button block round color="danger" (click)="GoBack()">ชำระสินค้า</button>
+  </div>
+
+</ion-content>
