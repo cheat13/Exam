@@ -12,7 +12,7 @@
   </ion-item>
 
   <div padding>
-    <button ion-button block round (click)="SetRate()">ยืนยัน</button>
+    <button ion-button block round (click)="SetRate()" [disabled]="isCheck()">ยืนยัน</button>
   </div>
 
 </ion-content>

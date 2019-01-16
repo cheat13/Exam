@@ -14,10 +14,10 @@ export class AboutPage {
   public loan: Loan = new Loan;
 
   constructor(public navCtrl: NavController, private http: HttpClient) {
-    
+
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.GetRate();
     this.Calculate();
   }
@@ -34,5 +34,9 @@ export class AboutPage {
       .subscribe(data => {
         this.loan.rate = data;
       });
+  }
+
+  isCheck() {
+    return !(this.balance > 0 && this.years > 0);
   }
 }

@@ -21,7 +21,7 @@
     </ion-item>
 
     <div padding>
-      <button ion-button block round color="secondary" (click)="Calculate()">คำนวณ</button>
+      <button ion-button block round color="secondary" (click)="Calculate()" [disabled]="isCheck()">คำนวณ</button>
     </div>
   </div>
 
