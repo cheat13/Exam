@@ -31,6 +31,6 @@ export class HomePage {
   }
 
   isCheck(): boolean {
-    return this.product.name == null || this.product.name == '' || this.product.price == null || this.product.price == 0
+    return this.product.name == null || this.product.name == '' || !(this.product.price > 0);
   }
 }

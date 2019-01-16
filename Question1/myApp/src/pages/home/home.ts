@@ -12,7 +12,7 @@ export class HomePage {
   public loan: Loan = new Loan();
 
   constructor(public navCtrl: NavController, private http: HttpClient, public toastCtrl: ToastController) {
-    
+
   }
 
   SetRate() {
@@ -29,5 +29,9 @@ export class HomePage {
       position: 'top'
     });
     toast.present();
+  }
+
+  isCheck() {
+    return !(this.loan.rate > 0);
   }
 }

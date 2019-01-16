@@ -35,6 +35,6 @@ export class ListPage {
   }
 
   isCheck(): boolean {
-    return this.products.every(it => it.amount == 0);
+    return this.products.every(it => it.amount == 0) || this.products.some(it => it.amount < 0);
   }
 }
