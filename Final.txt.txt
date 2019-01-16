@@ -1,0 +1,74 @@
+# ข้อที่ 1 อยู่ใน Folder "Question1"
+
+สิ่งที่ทำ
+- ออกแบบ wireframe
+- ออกแบบ models
+- สร้างโปรเจค webapi,xunit,ionic
+- สร้างฟังก์ชัน TestInterestCalculate เพื่อทดสอบการหาค่า "ดอกเบี้ย"
+- สร้างฟังก์ชัน InterestCalculate บนคลาส Calculate เพื่อหาค่า "ดอกเบี้ย"
+- รัน test
+- สร้าง api สำหรับโปรแกรม
+- ทำ UI ตามที่ได้ออกแบบไว้
+- เชื่อม api กับ app
+- ตรวจสอบความถูกต้อง/ แก้ Bug ต่างๆ
+- ตกแต่ง UI เพื่อความสวยงาม
+
+# Member
+
+Descrip
+- year: int
+- balance: double
+- interest: double
+- payments: double
+
+Loan
+- rate: double
+- descrip: Descrip[]
+
+# Method
+
+- InterestCalculate(balance : double): double
+- SetRate(loan: Loan): void
+- GetRate(): double
+- AddDescripts(balance: double,years: int): Loan
+
+------------------------------------------------------------
+# ข้อที่ 2 อยู่ใน Folder "Question2"
+
+สิ่งที่ทำ
+- ออกแบบ wireframe
+- ออกแบบ models
+- สร้างโปรเจค webapi,xunit,ionic
+- สร้างฟังก์ชัน TestDiscountCalculate เพื่อทดสอบการหาค่า "ส่วนลด"
+- สร้างฟังก์ชัน DiscountCalculate บนคลาส Calculate เพื่อหาค่า "ส่วนลด"
+- รัน test
+- สร้าง api สำหรับโปรแกรม
+- ทำ UI ตามที่ได้ออกแบบไว้
+- เชื่อม api กับ app
+- ตรวจสอบความถูกต้อง/ แก้ Bug ต่างๆ
+- ตกแต่ง UI เพื่อความสวยงาม
+
+# Member
+
+Product
+- id: string
+- name: string
+- price: double
+- amount: int
+- totalPrice: double
+
+Cart
+- products: Product[]
+- totalPrice: double
+- discount: double
+- payments: double
+
+# Method
+
+- AddProduct(product: Product): void
+- GetProduct(id: string): Product
+- GetAllProduct(): Product[]
+
+- AddProductInCart(products: Product[]): void
+- GetCart(): Cart
+- DiscountCalculate(price: double,amount: int): double
