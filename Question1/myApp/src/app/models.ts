@@ -1,10 +1,11 @@
 export class Descript {
     year: number
-    balance : number
-    interest : number
-    payments : number
+    balance: number
+    interest: number
+    payments: number
 }
 
-export class Rate {
+export class Loan {
     rate: number
+    descripts: Descript[]
 }
