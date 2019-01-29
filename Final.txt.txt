@@ -72,3 +72,15 @@ Cart
 - AddProductInCart(products: Product[]): void
 - GetCart(): Cart
 - DiscountCalculate(price: double,amount: int): double
+
+Q1 Score
+App: 10/10
+Api: 10/10
+Test: 4/5  test น้อยไป
+
+Q2 Score
+App: 18/25 binding ผิด, add ของ ใช้งานยาก
+Api: 20/20
+Test: 8/10 ไม่ได้ test logic อื่น นอกจาก 3 free 1 
+
+Total: 24 + 46 = 70
